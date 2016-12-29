@@ -129,8 +129,8 @@ describe('Users',()=>{
       it('it should not POST a user without username',(done)=>{
           let adminToken = jwt.sign({username: 'davidedelerma', admin: true},secret);
           let user = {
-              name: "Dan",
-              lastname: "Martlan",
+              name: "Daniel",
+              lastname: "Craig",
               password: "password123",
               admin: true,
               location: "Napoli"
@@ -151,9 +151,9 @@ describe('Users',()=>{
       it('it should not POST a user without password',(done)=>{
           let adminToken = jwt.sign({username: 'davidedelerma', admin: true},secret);
           let user = {
-              name: "Dan",
-              lastname: "Martland",
-              username: "danmartland",
+              name: "Daniel",
+              lastname: "Craig",
+              username: "danielcraig",
               admin: true,
               location: "Napoli"
           }
@@ -173,9 +173,9 @@ describe('Users',()=>{
       it('it should POST a new user when logged-in user is an admin ', (done) => {
         let adminToken = jwt.sign({username: 'davidedelerma', admin: true},secret);
         let user = {
-            name: "Dan",
-            lastname: "Martland",
-            username: "danmartland",
+            name: "Daniel",
+            lastname: "Craig",
+            username: "danielcraig",
             password: "password123",
             admin: true,
             location: "Glasgow"
@@ -202,9 +202,9 @@ describe('Users',()=>{
       it('it should not POST a new user when logged-in user is not an admin ', (done) => {
         let adminToken = jwt.sign({username: 'giacomoleopardi', admin: false},secret);
         let user = {
-            name: "Dan",
-            lastname: "Martland",
-            username: "danmartland",
+            name: "Daniel",
+            lastname: "Craig",
+            username: "danielcraig",
             password: "password123",
             admin: true,
             location: "Glasgow"
@@ -223,9 +223,9 @@ describe('Users',()=>{
         it('it should GET a user by the given id ', (done) => {
             let adminToken = jwt.sign({username: 'davidedelerma', admin: true},secret);
             let user = new User({
-                name: "Dan",
-                lastname: "Martland",
-                username: "danmartland",
+                name: "Daniel",
+                lastname: "Craig",
+                username: "danielcraig",
                 password: "password123",
                 admin: false,
                 location: "Napoli"
@@ -257,9 +257,9 @@ describe('Users',()=>{
         it('it should UPDATE a user given the id', (done) => {
             let adminToken = jwt.sign({username: 'davidedelerma', admin: true},secret);
             let user = new User({
-                name: "Dan",
-                lastname: "Martland",
-                username: "danmartland",
+                name: "Daniel",
+                lastname: "Craig",
+                username: "danielcraig",
                 password: "password123",
                 admin: true,
                 location: "Napoli"
@@ -269,9 +269,9 @@ describe('Users',()=>{
                 .put('/user/' + user.id)
                 .set('Authorization', 'Bearer ' + adminToken)
                 .send({
-                    name: "Dan",
+                    name: "Daniel",
                     lastname: "de Lerma",
-                    username: "danmartlan",
+                    username: "danielcraig",
                     password: "password123",
                     admin: true,
                     location: "Napoli"
@@ -280,7 +280,7 @@ describe('Users',()=>{
                     res.should.have.status(200);
                     res.body.should.be.a('object');
                     res.body.should.have.property('message').eql('User updated!');
-                    res.body.user.should.have.property('name').eql("Dan");
+                    res.body.user.should.have.property('name').eql("Daniel");
                     done();
                 });
             });
@@ -290,9 +290,9 @@ describe('Users',()=>{
         it('it should DELETE a user given the id when logged-in user is an admin', (done) => {
             let adminToken = jwt.sign({username: 'davidedelerma', admin: true},secret);
             let user = new User({
-                name: "Dan",
-                lastname: "Martland",
-                username: "danmartland",
+                name: "Daniel",
+                lastname: "Craig",
+                username: "danielcraig",
                 password: "password123",
                 admin: false,
                 location: "Napoli"
@@ -314,9 +314,9 @@ describe('Users',()=>{
         it('it should not DELETE a user given the id when logged-in user is not an admin', (done) => {
             let adminToken = jwt.sign({username: 'giacomoleopardi', admin: false},secret);
             let user = new User({
-                name: "Dan",
-                lastname: "Martland",
-                username: "danmartland",
+                name: "Daniel",
+                lastname: "Craig",
+                username: "danielcraig",
                 password: "password123",
                 admin: false,
                 location: "Napoli"

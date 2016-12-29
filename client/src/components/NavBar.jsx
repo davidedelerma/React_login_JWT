@@ -32,7 +32,7 @@ const NavBar = React.createClass({
           <Navbar.Header>
             <Navbar.Brand>
               <IndexLinkContainer to="/" activeClassName="active">
-                <a>Edge App</a>
+                <a>Login App</a>
               </IndexLinkContainer>  
             </Navbar.Brand>
             <Navbar.Toggle />
